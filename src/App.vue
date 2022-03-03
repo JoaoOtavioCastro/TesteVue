@@ -1,30 +1,61 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
+  <Navbar :logo="logo_src" :alt="app_name"/>
   <router-view/>
+  <Footer />
 </template>
 
+<script>
+  import Navbar from './components/Navbar.vue';
+  import Footer from './components/Footer.vue';
+
+
+  export default {
+    components: {
+      Navbar,
+      Footer
+    },
+    data() {
+      return {
+        logo_src: "/img/pincel.png",
+        app_name: "Página do João"
+      }
+    }
+  }
+
+</script>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*{
+  font-family: Helvetica;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.main-container{
+  margin: 5%;
+  min-height:250px;
+  text-align: justify;
+}
+.main-container h2{
   text-align: center;
-  color: #2c3e50;
 }
+h1{
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 30px;
 
-#nav {
-  padding: 30px;
 }
+.link-social{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  justify-items: center;
+  flex-wrap: wrap;
+  width: 34%;
+  background-color: #222;
+  color: #fff;
+  padding: 5%;
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
 
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
 </style>
